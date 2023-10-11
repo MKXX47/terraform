@@ -87,6 +87,13 @@ resource "azurerm_storage_account" "my_storage_account" {
   resource_group_name      = azurerm_resource_group.rg.name
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  logging {
+      version      = "1.0"
+      delete       = true
+      read         = true
+      write        = true
+      retention    = 30
+    }
 }
 
 # Create virtual machine
